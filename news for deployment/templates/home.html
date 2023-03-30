@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+ {% block title %}home{% endblock title %}
+{% block content %} 
+
+<a href="{% url 'article_list' %}">posts</a>
+You have to be signed in to see posts
+
+<h2>This is the django news blog website</h2>
+{% if user.is_authenticated %} Hi {{user.username}}! You are
+{{user.age}} years old
+<p><a href="{% url 'logout' %}">Log Out</a></p>
+{% else %}
+<p>You are not logged in</p>
+<a href="{% url 'login' %}">Log In</a> |
+
+<a href="{% url 'signup' %}">Sign Up</a>
+
+{% endif %} 
+{% endblock content %}
